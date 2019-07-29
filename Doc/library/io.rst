@@ -477,7 +477,9 @@ I/O Base Classes
       Separate the underlying raw stream from the buffer and return it.
 
       After the raw stream has been detached, the buffer is in an unusable
-      state.
+      state. As a result, accessing/calling most
+      attributes/methods of either :class:`BufferedIOBase` or its
+      :class:`IOBase` parent will raise :exc:`ValueError`.
 
       Some buffers, like :class:`BytesIO`, do not have the concept of a single
       raw stream to return from this method.  They raise
@@ -811,7 +813,9 @@ Text I/O
       return it.
 
       After the underlying buffer has been detached, the :class:`TextIOBase` is
-      in an unusable state.
+      in an unusable state. As a result, accessing/calling most
+      attributes/methods of either :class:`TextIOBase` or its
+      :class:`IOBase` parent will raise :exc:`ValueError`.
 
       Some :class:`TextIOBase` implementations, like :class:`StringIO`, may not
       have the concept of an underlying buffer and calling this method will
